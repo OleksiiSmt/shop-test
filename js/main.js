@@ -40,7 +40,7 @@ var totalPrice = 0,
 function addToCart(){
 	var btnId = $(this).attr('data-id'),
 		thisPrice = $(this).attr('data-price')
-		priceSpan = document.getElementById('js-price'),
+		priceSpan = $('#js-price'),
 		amountSpan = $('#js-amount'),
 		inp = $(this).siblings().children(1);
 		var inpval = inp.val();
@@ -48,14 +48,14 @@ function addToCart(){
 		if (inpval >= 2) {
 			totalPrice = (thisPrice * inpval) + totalPrice;
 			totalAmount = totalAmount + parseInt(inpval);
-			priceSpan.innerText = totalPrice;
+			priceSpan.text(totalPrice);
 			amountSpan.text(totalAmount);
 		} else if (inpval < 0) {
 			alert("Ошибка");
 		} else {
 			totalPrice = parseInt(thisPrice) + totalPrice;
 			totalAmount++;
-			priceSpan.innerText = totalPrice;
+			priceSpan.text(totalPrice);
 			amountSpan.text(totalAmount);
 		}
 }
