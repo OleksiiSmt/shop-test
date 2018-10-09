@@ -1,0 +1,74 @@
+{
+  "0" : {
+    "name": "Овсяная каша с фруктами",
+    "img": "i/im1.jpg",
+    "price": 25,
+    "type": "dinner"
+  },
+  "1" : {
+    "name": "Яичница глазунья с овощами на сковородке",
+    "img": "i/im2.jpg",
+    "price": 25,
+    "type": "dinner"
+  },
+  "2" : {
+    "name": "Сет азербайджанский завтрак",
+    "img": "i/im3.jpg",
+    "price": 30,
+    "type": "dinner"
+  },
+  "3" : {
+    "name": "Яичница с помидорами по-бакински",
+    "img": "i/im4.jpg",
+    "price": 45,
+    "type": "dinner"
+  },
+  "4" : {
+    "name": "Сырники со сметаной",
+    "img": "i/im5.jpg",
+    "price": 45,
+    "type": "dinner"
+  },
+  "5" : {
+    "name": "Шпинатный крем-суп",
+    "img": "i/im6.jpg",
+    "price": 50,
+    "type": "firstMeal"
+  },
+  "6" : {
+    "name": "Суп Пити",
+    "img": "i/im7.jpg",
+    "price": 85,
+    "type": "firstMeal"
+  },
+  "7" : {
+    "name": "Борщ украинский",
+    "img": "i/im8.jpg",
+    "price": 95,
+    "type": "firstMeal"
+  },
+  "8" : {
+    "name": "Суп Кюфта Бозбаш",
+    "img": "i/im9.jpg",
+    "price": 100,
+    "type": "firstMeal"
+  },
+  "9" : {
+    "name": "Картофель фри",
+    "img": "i/im10.jpg",
+    "price": 125,
+    "type": "garnish"
+  },
+  "10" : {
+    "name": "Картофель по-домашнему",
+    "img": "i/im11.jpg",
+   "price": 135,
+    "type": "garnish"
+  },
+  "11" : {
+    "name": "Рис с овощами",
+    "img": "i/im12.jpg",
+    "price": 150,
+    "type": "garnish"
+  }
+}
