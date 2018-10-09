@@ -4,6 +4,7 @@ var cart = {}; // моя корзина
 $('document').ready(function(){
   loadGoods();
   Filter();
+  Modal();
 });
 
 function loadGoods(){
@@ -23,7 +24,7 @@ function loadGoods(){
 			out += '<div class="qty">';    
 			out += '<input class="qty__item" type="number"> Кол';
 			out += '</div>';
-			out += '<button class="product-box__btn" data-id="'+ key +'">Добавить</button>';
+			out += '<button class="product-box__btn" data-price="'+data[key]['price']+'"" data-id="'+ key +'">Добавить</button>';
 			out += '</div>';
 			out += '</div>';
       }
@@ -38,19 +39,19 @@ var totalPrice = 0,
 
 function addToCart(){
 	var btnId = $(this).attr('data-id'),
-		thisPrice = Price(btnId),
+		thisPrice = $(this).attr('data-price')
 		priceSpan = document.getElementById('js-price'),
 		amountSpan = $('#js-amount'),
 		inp = this.previousSibling.childNodes[0];
 		if (inp.value >= 2) {
-			totalPrice = thisPrice * inp.value + totalPrice;
+			totalPrice = (thisPrice * inp.value) + totalPrice;
 			totalAmount = totalAmount + parseInt(inp.value);
 			priceSpan.innerText = totalPrice;
 			amountSpan.text(totalAmount);
 		} else if (inp.value < 0) {
 			alert("Ошибка");
 		} else {
-			totalPrice = totalPrice + thisPrice;
+			totalPrice = (thisPrice * 1) + totalPrice;
 			totalAmount++;
 			priceSpan.innerText = totalPrice;
 			amountSpan.text(totalAmount);
@@ -87,3 +88,37 @@ function Filter() {
 	};
 }
 
+
+function Modal(){
+var btnCheck = $('#js-btn-check'),
+	modal = $('#js-modal'),
+	close = $('#js-close');
+
+	btnCheck.click( function(){
+		modal.css('display','block');
+	});
+	close.click( function(){
+		modal.css('display','none');
+	});
+};
+
+function sendOrder(){
+	var modalInputsList = document.querySelectorAll('.modal-input'),
+		modal = document.getElementById('js-modal'),
+		modalInputsArray = Array.prototype.slice.call(modalInputsList);
+
+	if ((modalInputsArray[0].value == '') || (modalInputsArray[1].value == '')) {
+		alert('Error');
+		//проверка на пустоту
+	} else if ((modalInputsArray[0].value.replace(/\s/g,'') == '') || (modalInputsArray[1].value.replace(/\s/g,'') == '')) {
+		alert('Error');
+		//проверка на пробелы
+	} else {
+		var priceSpan = document.getElementById('js-price'),
+			amountSpan = document.getElementById('js-amount');
+		alert('Благодарим за покупку');
+		modal.style.display = 'none';
+		priceSpan.innerText = 'XXX';
+		amountSpan.innerText = 'XXX';
+	}
+}

@@ -17,7 +17,7 @@
                 <span class="top-cart-info__item">
                      Товаров в корзине - <span class="red-info" id="js-amount">XXX</span>,
                       на сумму <span class="red-info" id="js-price">XXX</span> грн</span>
-                <button class="btn-check">Оформить заказ</button>
+                <button class="btn-check" id="js-btn-check">Оформить заказ</button>
             </div>
         </div><!-- /.top-cart-info -->
 
@@ -60,7 +60,6 @@
                 
             </div>
             <!-- /product-box-->
-            <div class="logp"></div>
         </section>
     </div>
     <footer class="bottom-footer bg-beetroot py-1">
@@ -72,10 +71,16 @@
                 </div>
             </div>
         </div>
+        <div class="modal" id="js-modal">
+            <div class="modal-content">
+                <span class="close" id="js-close">+</span>
+                <input class="modal-input" type="text" name="name" placeholder="Ваше имя">
+                <input class="modal-input" type="email" name="email" placeholder="Ваш e-mail">
+                <button class="modal-btn" onclick="sendOrder();">Отправить</button>
+            </div>
+        </div>
+        <!-- /.modal -->
     </footer>
 </div><!-- /.app-container -->
-
-
-
 </body>
 </html>
