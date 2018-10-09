@@ -53,7 +53,7 @@ function addToCart(){
 		} else if (inpval < 0) {
 			alert("Ошибка");
 		} else {
-			totalPrice = (thisPrice * 1) + totalPrice;
+			totalPrice = parseInt(thisPrice) + totalPrice;
 			totalAmount++;
 			priceSpan.innerText = totalPrice;
 			amountSpan.text(totalAmount);
