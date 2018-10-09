@@ -1,9 +1,8 @@
-var cart = {}; // моя корзина
-
 
 $('document').ready(function(){
   loadGoods();
   Filter();
+  filterPrice();
   Modal();
 });
 
@@ -80,7 +79,7 @@ function Filter() {
 	var items_el = document.getElementById('list');
 
 	filter_select_el.onchange = function() {
-	    console.log(this.value);
+	    // console.log(this.value);
 	 var items = items_el.getElementsByClassName('product-box__item');
 	 for (var i=0; i<items.length; i++) {
 	     if (items[i].classList.contains(this.value)) {
@@ -90,6 +89,31 @@ function Filter() {
 	   }
 	 }
 	};
+}
+
+function filterPrice() {
+    var filter_select_el = $('#filter-price');
+    var items_el = $('#list');
+
+    filter_select_el.change(function() {
+        // console.log($(this).val());
+        var thisPars = parseInt($(this).val());
+        var item = document.querySelectorAll('.product-box__btn');
+        var items = Array.prototype.slice.call(item);
+        var block = $('.product-box__item');
+        // console.log(items);
+        // console.log(thisPars);
+        for (var i = 0 ; i < items.length; i++) {
+            var itemAtr = items[i].getAttribute('data-price');
+            var itemAtrPars = parseInt(itemAtr);
+            console.log(itemAtrPars);
+            if (itemAtrPars <= thisPars) {
+               items[i].parentNode.parentNode.style.display = 'flex';
+           } else {
+               items[i].parentNode.parentNode.style.display = 'none';
+           }
+        }
+    });
 }
 
 
