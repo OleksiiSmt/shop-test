@@ -42,13 +42,15 @@ function addToCart(){
 		thisPrice = $(this).attr('data-price')
 		priceSpan = document.getElementById('js-price'),
 		amountSpan = $('#js-amount'),
-		inp = this.previousSibling.childNodes[0];
-		if (inp.value >= 2) {
-			totalPrice = (thisPrice * inp.value) + totalPrice;
-			totalAmount = totalAmount + parseInt(inp.value);
+		inp = $(this).siblings().children(1);
+		var inpval = inp.val();
+		// console.log(inpval);
+		if (inpval >= 2) {
+			totalPrice = (thisPrice * inpval) + totalPrice;
+			totalAmount = totalAmount + parseInt(inpval);
 			priceSpan.innerText = totalPrice;
 			amountSpan.text(totalAmount);
-		} else if (inp.value < 0) {
+		} else if (inpval < 0) {
 			alert("Ошибка");
 		} else {
 			totalPrice = (thisPrice * 1) + totalPrice;
@@ -58,18 +60,20 @@ function addToCart(){
 		}
 }
 
-function Price(id) {
-	$.getJSON('js/goods.json', function (data) {
+// function Price(id) {
+// 	$.getJSON('js/goods.json', function (data) {
 
-		for (var key in data) {
-			if (key == id) {
-				var price = data[key]['price'];
-				console.log(price);
-				return price;	
-			}
-		}
-	});
-};
+// 		for (var key in data) {
+// 			if (key == id) {
+// 				var price = data[key]['price'];
+// 				console.log(price);
+// 				return price;	
+// 			}
+// 		}
+// 	});
+// };
+// хотел что бы оно само брало цену с джейсона без дополнения на кноппку всяких отрибутов
+// но return пропадает на функции function (data) 
 
 function Filter() {
 	var filter_select_el = document.getElementById('filter');
